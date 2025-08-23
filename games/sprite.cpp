@@ -1,25 +1,15 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#include <filesystem>
 
 
-struct game_parameters{
-  unsigned int size_x = 800;
-  unsigned int size_y = 800;
-};
+namespace fs = std::filesystem;
 
-game_parameters obj1;
+void receive_path() {
+  fs::path p("/home/benedek-kaibas/Desktop");
 
-void display_window(){
-  sf::RenderWindow window(sf::VideoMode({obj1.size_x, obj1.size_y}), "Sprite Game");
+  std::cout << p.parent_path();
 }
 
-void display(){
-  sf::RenderWindow window(sf::VideoMode({800, 600}), "Sprite Game");
+int main() {
+  receive_path();
 }
-
-int main(){
-  display_window();
-  //display();
-}
-
